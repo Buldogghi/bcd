@@ -82,6 +82,7 @@ main :: proc() {
 				switch arg {
 				case "--":
 					ignore_args = true
+					continue
 				case "--help":
 					fallthrough
 				case "-h":
