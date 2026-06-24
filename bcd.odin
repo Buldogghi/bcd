@@ -96,6 +96,7 @@ traverse :: proc(check: string, current: string, remaining: []string) -> string 
 		if match := matches(check, dir.name); match >= 0 {
 			path, _ := os.join_path({current, dir.name}, context.allocator)
 			if len(remaining) > 0 {
+				if is_file do continue
 				next := traverse(remaining[0], path, remaining[1:])
 				if next != "" do append(&valid, validvalue{next, match})
 			} else {
